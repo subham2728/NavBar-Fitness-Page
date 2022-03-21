@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>BMI CALCULATOR</h1>
+        Enter your weight :
+        <input id="weight" type="number" /> kg
+        <br> Enter your height :
+        <input id="feet" type="number" /> feet
+        <input id="inch" type="number" /> inch
+        <br> Enter your age :
+        <input id="inch" type="number" /> years
+        <br>
+
+        <button onclick="bmi_func()">Calculate</button>
+        <p id="display"></p>
+
+    </div>
+</body>
+
+<script>
+    function bmi_func() {
+        const weight = document.getElementById('weight').value;
+        feet = document.getElementById('feet').value;
+        inch = document.getElementById('inch').value;
+        feet_to_inch = (feet * 12);
+        total_inch = (feet_to_inch + inch);
+        inch_to_m = (total_inch * 0.0254);
+        bmi = (((weight / (inch_to_m ** 2))) * 100).toFixed(2);
+
+        document.getElementById('display').innerHTML = `Your bmi is ${bmi}`;
+    }
+</script>
+
+</html>
